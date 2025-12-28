@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dhanush Kumar | Java Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Dhanush Kumar – Java Full Stack Developer skilled in Java, Angular, DSA, and full-stack application development.">
+  <meta name="keywords" content="Java Developer, Full Stack Developer, Angular, DSA, Portfolio">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cyan: #00e5ff;
+      --purple: #7c4dff;
+      --green: #00e676;
+      --yellow: #ffd600;
+      --glass: rgba(255,255,255,0.06);
+      --border-glow: rgba(0,229,255,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0b1c33, #000);
+      color: #e0f7ff;
+      padding-top: 80px;
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      background: rgba(5,11,20,0.75) !important;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-glow);
+      transform: translateY(-100%);
+      animation: navDrop 1s ease forwards;
+    }
+
+    @keyframes navDrop {
+      to { transform: translateY(0); }
+    }
+
+    .navbar-brand {
+      color: var(--cyan) !important;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link-custom {
+      color: #e0f7ff;
+      margin-left: 22px;
+      position: relative;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-link-custom::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      transition: 0.3s;
+    }
+
+    .nav-link-custom:hover::after {
+      width: 100%;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: heroFade 1.2s ease forwards 0.6s;
+    }
+
+    @keyframes heroFade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--cyan);
+      box-shadow: 0 0 45px var(--cyan);
+      transform: scale(0.6);
+      opacity: 0;
+      animation: imgZoom 1s ease forwards 1s;
+    }
+
+    @keyframes imgZoom {
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-glow {
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      color: #000;
+      padding: 12px 30px;
+      border-radius: 50px;
+      box-shadow: 0 0 30px rgba(0,229,255,0.9);
+      opacity: 0;
+      transform: scale(0.8);
+      animation: btnPop 0.8s ease forwards 1.6s;
+      font-weight: 600;
+    }
+
+    @keyframes btnPop {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ================= CARDS BASE ================= */
+    .about-card, .skill-card, .profile-card, .project-card {
+      background: var(--glass);
+      border-radius: 18px;
+      border: 1px solid var(--border-glow);
+      backdrop-filter: blur(14px);
+      transition: all 0.45s ease;
+    }
+
+    /* ================= SKILLS ================= */
+    .skill-card {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 0 35px rgba(0,229,255,0.6);
+    }
+
+    .frontend:hover {
+      box-shadow: 0 0 45px var(--cyan);
+    }
+
+    .backend:hover {
+      box-shadow: 0 0 45px var(--green);
+    }
+
+    .database:hover {
+      box-shadow: 0 0 45px var(--yellow);
+    }
+
+    /* ================= PROFILES ================= */
+    .profile-card {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 0 45px rgba(124,77,255,0.6);
+    }
+
+    /* ================= PROJECTS ================= */
+    .project-card:hover {
+      transform: translateY(-14px) scale(1.04);
+      box-shadow: 0 0 55px rgba(0,229,255,0.9);
+    }
+
+    /* ================= ACTION LOGO ================= */
+    .action-logo-wrap{
+      display:flex;
+      justify-content:center;
+      position:relative;
+      margin-bottom:12px;
+    }
+
+    .action-logo{
+      font-size:2.6rem;
+      color:var(--cyan);
+      animation:actionFloat 3s ease-in-out infinite;
+      z-index:2;
+    }
+
+    .action-ring{
+      position:absolute;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:2px dashed rgba(0,229,255,.5);
+      animation:actionSpin 8s linear infinite;
+    }
+
+    @keyframes actionFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+
+    @keyframes actionSpin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container d-flex justify-content-between">
+    <a class="navbar-brand" href="#">Dhanush Kumar Maha devan</a>
+    <div>
+      <a href="#about" class="nav-link-custom">About</a>
+      <a href="#skills" class="nav-link-custom">Skills</a>
+      <a href="#projects" class="nav-link-custom">Projects</a>
+      <a href="#profiles" class="nav-link-custom">Profiles</a>
+      <a href="#contact" class="nav-link-custom">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <img src="symposium crop.png" class="profile-img mb-4">
+    <h1 class="fw-bold">Dhanush Kumar Maha devan</h1>
+    <p class="lead">Java Full Stack Developer | Angular | DSA Enthusiast</p>
+    <a href="#projects" class="btn btn-glow mt-3">View My Projects</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-5 reveal">
+  <div class="container">
+    <h2 class="text-center mb-4">About Me</h2>
+    <div class="about-card p-4">
+      <p>
+        I am a Computer Science student with a strong passion for building
+        <strong>real-world, scalable software solutions</strong>.
+        My primary focus is on Java-based backend logic and Angular-driven frontends.
+      </p>
+      <p>
+        I enjoy converting complex requirements into clean, maintainable code
+        while following best practices in software design.
+      </p>
+      <p>
+        I consistently practice Data Structures and Algorithms to sharpen my
+        problem-solving skills and improve performance-aware coding.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-5 bg-light text-dark reveal">
+  <div class="container">
+    <h2 class="text-center mb-4">Technical Skills</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="skill-card frontend text-center p-4">
+          <i class="bi bi-palette-fill fs-1"></i>
+          <h5>Frontend Development</h5>
+          <p>Designing responsive, user-friendly interfaces using modern frontend technologies.</p>
+          <p><strong>Tech:</strong> HTML, CSS, JavaScript, Angular, Java GUI</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="skill-card backend text-center p-4">
+          <i class="bi bi-cpu-fill fs-1"></i>
+          <h5>Backend Development</h5>
+          <p>Building robust application logic, APIs, and server-side workflows.</p>
+          <p><strong>Tech:</strong> Java, Python, TypeScript, JavaScript</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="skill-card database text-center p-4">
+          <i class="bi bi-database-fill fs-1"></i>
+          <h5>Database & Tools</h5>
+          <p>Managing data efficiently and maintaining clean version control.</p>
+          <p><strong>Tools:</strong> MySQL, Git, Problem Solving</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-5 reveal">
+  <div class="container">
+    <h2 class="text-center mb-4">Projects</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <div class="action-logo-wrap">
+            <i class="bi bi-cart-check action-logo"></i>
+            <span class="action-ring"></span>
+          </div>
+          <h5 class="text-center">E-Commerce Web Application (Angular)</h5>
+          <p>A complete front-end e-commerce solution designed to simulate real online shopping platforms.</p>
+          <ul>
+            <li>Implemented product listing, category filtering, and cart management.</li>
+            <li>Focused on modular Angular components for scalability.</li>
+            <li>Used services for state handling and data flow.</li>
+            <li>Ensured responsive UI for different screen sizes.</li>
+          </ul>
+          <p><strong>Learning Outcome:</strong> Angular architecture, component interaction, UI/UX thinking.</p>
+          <a href="https://github.com/Dhanush-Kumar008/ecommerce-angular-project" target="_blank" class="btn btn-outline-info w-100 mt-2">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <div class="action-logo-wrap">
+            <i class="bi bi-cloud-sun action-logo"></i>
+            <span class="action-ring"></span>
+          </div>
+          <h5 class="text-center">Weather Application (Angular)</h5>
+          <p>A real-time weather forecasting application consuming public APIs.</p>
+          <ul>
+            <li>Fetched live weather data using HTTP client services.</li>
+            <li>Displayed temperature, conditions, and location-based results.</li>
+            <li>Handled API responses and errors gracefully.</li>
+            <li>Designed clean and intuitive user interface.</li>
+          </ul>
+          <p><strong>Learning Outcome:</strong> API integration, async data handling, Angular services.</p>
+          <a href="https://github.com/Dhanush-Kumar008/Wheather-app-angular" target="_blank" class="btn btn-outline-info w-100 mt-2">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <div class="action-logo-wrap">
+            <i class="bi bi-mic action-logo"></i>
+            <span class="action-ring"></span>
+          </div>
+          <h5 class="text-center">Speech Recognition System (Python)</h5>
+          <p>A Python-based application that converts spoken language into text.</p>
+          <ul>
+            <li>Captured audio input and processed it using speech libraries.</li>
+            <li>Converted voice commands into readable text.</li>
+            <li>Improved accuracy through noise handling techniques.</li>
+            <li>Explored human–computer interaction concepts.</li>
+          </ul>
+          <p><strong>Learning Outcome:</strong> Audio processing, Python libraries, AI fundamentals.</p>
+          <a href="https://github.com/Dhanush-Kumar008/nm-speech-recoginition-project" target="_blank" class="btn btn-outline-info w-100 mt-2">View on GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section id="profiles" class="py-5 reveal">
+  <div class="container">
+    <h2 class="text-center mb-4">Skills & Profiles</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <a href="https://github.com/Dhanush-Kumar008" target="_blank" class="text-decoration-none text-reset">
+          <div class="profile-card p-4">
+            <div class="action-logo-wrap">
+              <i class="bi bi-github action-logo"></i>
+              <span class="action-ring"></span>
+            </div>
+            <h5>GitHub</h5>
+            <p>Collection of real-world projects showcasing consistent practice, clean code structure, and continuous learning.</p>
+            <span class="btn btn-outline-info w-100">Visit GitHub</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="https://leetcode.com/u/dhanushkumarit2022/" target="_blank" class="text-decoration-none text-reset">
+          <div class="profile-card p-4">
+            <div class="action-logo-wrap">
+              <i class="bi bi-code-slash action-logo"></i>
+              <span class="action-ring"></span>
+            </div>
+            <h5>LeetCode</h5>
+            <p>Regular practice of Data Structures and Algorithms to strengthen logical thinking and interview readiness.</p>
+            <span class="btn btn-outline-info w-100">View LeetCode</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="https://drive.google.com/drive/folders/1SYxyROn2GC0m4BQzJJYFYG23eguF8eo8" target="_blank" class="text-decoration-none text-reset">
+          <div class="profile-card p-4">
+            <div class="action-logo-wrap">
+              <i class="bi bi-file-earmark-person action-logo"></i>
+              <span class="action-ring"></span>
+            </div>
+            <h5>Resume</h5>
+            <p>A detailed overview of my skills, education, projects, and learning journey as a software developer.</p>
+            <span class="btn btn-outline-info w-100">View Resume</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 text-center reveal">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>Email: dhanushkumarit2022@gmail.com</p>
+    <p>Phone: +91 6381567560</p>
+    <a href="https://www.linkedin.com/in/dhanush-kumar008/" target="_blank" class="btn btn-glow">LinkedIn</a>
+  </div>
+</section>
+
+<footer class="py-3 text-center">
+  <p class="mb-0">© 2025 Dhanush Kumar. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
